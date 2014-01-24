@@ -41,3 +41,9 @@ Host gerrit
     Port 29418
 EOS
 fi
+
+mkdir ~/.git_template || true
+git config --global init.templatedir '~/.git_template'
+if [ ! -e ~/.git_template/commit-msg ]; then
+	cp commit-msg ~/.git_template/
+fi
