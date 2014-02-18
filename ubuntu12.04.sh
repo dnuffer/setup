@@ -63,6 +63,9 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install \
+	jags \
+	r-cran-rjags \
+	r-cran-mcmcpack \
 	ifstat \
 	p7zip-full \
 	p7zip-rar \
@@ -146,7 +149,9 @@ apt-get -y install \
 	python \
 	python-chardet \
 	python-chm \
+	python-dev \
 	python-easygui \
+	python-magic \
 	python-matplotlib \
 	python-mutagen \
 	python-nose \
@@ -203,7 +208,18 @@ apt-get -y install \
 	libgcc1-dbg \
 	libgomp1-dbg \
 	libmudflap0-dbg \
-	doxygen
+	doxygen \
+	libgtk2.0-dev \
+	libavcodec-dev \
+	libavformat-dev \
+	libswscale-dev \
+	libdc1394-22-dev \
+	libjpeg-dev \
+	libpng12-dev \
+	libtiff4-dev \
+	libjasper-dev \
+	libatlas-base-dev
+
 
 #if lspci | grep -q VMware; then
 #	apt-get -y install \
