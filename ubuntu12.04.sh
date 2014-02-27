@@ -63,6 +63,11 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install \
+	python-qt4-dev \
+	python-gi-dev \
+	python-cairo-dev \
+	python-gtk2-dev \
+	tk-dev \
 	jags \
 	r-cran-rjags \
 	r-cran-mcmcpack \
