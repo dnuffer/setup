@@ -179,6 +179,7 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	vim \
 	vim-doc \
 	vim-gnome \
+	vim-gtk \
 	vpnc \
 	wv \
 	xchat

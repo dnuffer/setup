@@ -60,13 +60,12 @@ fi
 if ! [ -e ~/.gvm ]; then
 	bash < <(curl -s https://raw.github.com/moovweb/gvm/master/binscripts/gvm-installer)
 	source $HOME/.gvm/scripts/gvm
-	gvm install go1
-	gvm install go1.1.2
-	gvm use go1
+	gvm install go1.2
+	gvm use go1.2
 fi
 
 if ! [ -e ~/.rvm ]; then
-	curl -L https://get.rvm.io | bash -s stable --ruby=2.0
+	curl -L https://get.rvm.io | bash -s stable --ruby
 	set +e
 	set +u
 	source $HOME/.rvm/scripts/rvm
@@ -101,4 +100,7 @@ install_R_package devtools
 install_R_package roxygen2
 install_R_package testthat
 install_R_package iterators
+install_R_package caret
+install_R_package doParallel
+install_R_package e1071
 
