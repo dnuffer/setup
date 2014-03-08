@@ -231,6 +231,13 @@ if ! [ -e /usr/local/scala/eclipse ]; then
 	tar xzvf /tmp/scala-sdk.tar.gz -C /usr/local/scala
 fi
 
+if ! [ -e /usr/bin/rstudio ]; then
+	latest_r_studio_url=$(wget -q -O- http://www.rstudio.com/ide/download/desktop | grep -o -P 'https?://.*\.rstudio\.org/rstudio-.*-amd64\.deb' | tail -1)
+	wget -O /tmp/rstudio.deb "$latest_r_studio_url"
+	dpkg -i /tmp/rstudio.deb || true
+	apt-get -fy install
+fi
+
 if ! dpkg -l google-talkplugin; then
 	wget -O /tmp/google-talkplugin_current_amd64.deb https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb
 	dpkg -i /tmp/google-talkplugin_current_amd64.deb || true

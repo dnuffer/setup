@@ -295,6 +295,13 @@ if ! dpkg -l google-talkplugin; then
 	apt-get -fy install
 fi
 
+if ! [ -e /usr/bin/rstudio ]; then
+	latest_r_studio_url=$(wget -q -O- http://www.rstudio.com/ide/download/desktop | grep -o -P 'https?://.*\.rstudio\.org/rstudio-.*-amd64\.deb' | tail -1)
+	wget -O /tmp/rstudio.deb "$latest_r_studio_url"
+	dpkg -i /tmp/rstudio.deb || true
+	apt-get -fy install
+fi
+
 # Install python epub module for recoll indexing of epub files
 if ! [ -e /usr/local/lib/python2.7/dist-packages/epub ]; then
 	pip install epub
