@@ -21,7 +21,7 @@ fi
 
 apt-get -y dist-upgrade
 
-apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
+apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	alarm-clock-applet \
 	antiword \
 	apt-file \
