@@ -53,7 +53,7 @@ fi
 
 apt-get -y dist-upgrade
 
-apt-get -y install --install-suggests --fix-broken \
+apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 	python-qt4-dev \
 	python-gi-dev \
 	python-cairo-dev \
@@ -210,10 +210,9 @@ apt-get -y install --install-suggests --fix-broken \
 	libtiff4-dev \
 	libjasper-dev \
 	libatlas-base-dev \
-	eclipse \
-	eclipse-cdt \
-	eclipse-egit \
-	eclipse-jdt
+	libnet-dropbox-api-perl \
+	libdata-random-perl \
+	libgd-perl
 
 
 #if lspci | grep -q VMware; then
