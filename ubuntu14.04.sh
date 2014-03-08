@@ -11,7 +11,8 @@ fi
 #sed -i -e 's/us.archive.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 #sed -i -e 's/security.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 
-apt-get update
+# !!!!!!!!!!!!!!!!!! TEMP disable for debugging
+#apt-get update
 apt-get -y install git curl wget
 
 if ! [ -x /usr/lib/git-core/git-subtree ]; then
@@ -52,7 +53,7 @@ fi
 
 apt-get -y dist-upgrade
 
-apt-get -y install \
+apt-get -y install --install-suggests --fix-broken \
 	python-qt4-dev \
 	python-gi-dev \
 	python-cairo-dev \
@@ -75,7 +76,7 @@ apt-get -y install \
 	ccache \
 	clang \
 	clisp \
-	clojure1.3 \
+	clojure1.4 \
 	cmake \
 	coffeescript \
 	default-jdk \
@@ -93,7 +94,7 @@ apt-get -y install \
 	gnustep-devel \
 	gobjc \
 	gobjc++ \
-	gradle-ppa \
+	gradle \
 	groovy \
 	htop \
 	inkscape \
@@ -131,10 +132,9 @@ apt-get -y install \
 	nmap \
 	nodejs \
 	nunit-console \
-	octave3.2 \
+	octave \
 	octave-optim \
 	octave-ga \
-	octave3.2-headers \
 	octave-nnet \
 	openjdk-6-jdk \
 	openjdk-7-jdk \
@@ -174,8 +174,6 @@ apt-get -y install \
 	r-cran-spatial \
 	r-cran-survival \
 	recoll \
-	recoll-lens \
-	sagemath-upstream-binary \
 	scala \
 	screen \
 	shutter \
@@ -201,7 +199,6 @@ apt-get -y install \
 	libstdc++6-4.4-dbg \
 	libgcc1-dbg \
 	libgomp1-dbg \
-	libmudflap0-dbg \
 	doxygen \
 	libgtk2.0-dev \
 	libavcodec-dev \
@@ -212,7 +209,11 @@ apt-get -y install \
 	libpng12-dev \
 	libtiff4-dev \
 	libjasper-dev \
-	libatlas-base-dev
+	libatlas-base-dev \
+	eclipse \
+	eclipse-cdt \
+	eclipse-egit \
+	eclipse-jdt
 
 
 #if lspci | grep -q VMware; then
