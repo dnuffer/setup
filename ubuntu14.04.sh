@@ -11,8 +11,7 @@ fi
 #sed -i -e 's/us.archive.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 #sed -i -e 's/security.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 
-# !!!!!!!!!!!!!!!!!! TEMP disable for debugging
-#apt-get update
+apt-get update
 apt-get -y install git curl wget
 
 if ! [ -x /usr/lib/git-core/git-subtree ]; then
@@ -20,55 +19,13 @@ if ! [ -x /usr/lib/git-core/git-subtree ]; then
 	chmod +x /usr/lib/git-core/git-subtree
 fi
 
-#if ! [ -e /etc/apt/sources.list.d/cwchien-gradle-precise.list ]; then
-	#add-apt-repository -y ppa:cwchien/gradle
-	#apt-get -y update
-#fi
-
-#if ! [ -e /etc/apt/sources.list.d/recoll-backports-recoll-1_15-on-precise.list ]; then
-	#add-apt-repository -y ppa:recoll-backports/recoll-1.15-on
-	#apt-get -y update
-#fi
-
-#if ! [ -e /etc/apt/sources.list.d/marutter-rrutter-precise.list ]; then
-	#add-apt-repository -y ppa:marutter/rrutter
-	#apt-get -y update
-#fi
-
-#if ! [ -e /etc/apt/sources.list.d/webupd8team-java-precise.list ]; then
-	#add-apt-repository -y ppa:webupd8team/java
-	#apt-get -y update
-#fi
-
-#if ! [ -e /etc/apt/sources.list.d/aims-sagemath-precise.list ]; then
-	#add-apt-repository -y ppa:aims/sagemath
-	#apt-get -y update
-#fi
-
-# unfortunately this version of octave crashes with random memory corruption
-#if ! [ -e /etc/apt/sources.list.d/octave-stable-precise.list ]; then
-#	add-apt-repository -y ppa:octave/stable
-#	apt-get -y update
-#fi
-
 apt-get -y dist-upgrade
 
 apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
-	python-qt4-dev \
-	python-gi-dev \
-	python-cairo-dev \
-	python-gtk2-dev \
-	tk-dev \
-	jags \
-	r-cran-rjags \
-	r-cran-mcmcpack \
-	ifstat \
-	p7zip-full \
-	p7zip-rar \
-	python-jinja2 \
 	alarm-clock-applet \
 	antiword \
 	apt-file \
+	autofs \
 	bison \
 	build-essential \
 	bzr \
@@ -81,6 +38,7 @@ apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 	coffeescript \
 	default-jdk \
 	djvulibre-bin \
+	doxygen \
 	dvipng \
 	erlang \
 	freemind \
@@ -97,20 +55,39 @@ apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 	gradle \
 	groovy \
 	htop \
+	ifstat \
 	inkscape \
 	iotop \
 	ipython \
 	ipython-notebook \
+	jags \
+	kcachegrind \
 	libarmadillo-dev \
+	libatlas-base-dev \
+	libavcodec-dev \
+	libavformat-dev \
 	libboost-all-dev \
 	libboost-doc \
 	libcommons-cli-java \
 	libcurl4-openssl-dev \
+	libdata-random-perl \
+	libdc1394-22-dev \
+	libgcc1-dbg \
 	libgdbm-dev \
+	libgd-perl \
+	libgomp1-dbg \
+	libgtk2.0-dev \
 	libimage-exiftool-perl \
+	libjasper-dev \
+	libjpeg-dev \
 	liblapack-dev \
+	libnet-dropbox-api-perl \
+	libpng12-dev \
 	libprotobuf-dev \
 	libsqlite3-dev \
+	libstdc++6-4.4-dbg \
+	libswscale-dev \
+	libtiff4-dev \
 	libtool \
 	libwpd-tools \
 	libxml2-dev \
@@ -132,25 +109,33 @@ apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 	nmap \
 	nodejs \
 	nunit-console \
+	nvidia-cuda-toolkit \
 	octave \
-	octave-optim \
 	octave-ga \
 	octave-nnet \
+	octave-optim \
 	openjdk-6-jdk \
 	openjdk-7-jdk \
+	p7zip-full \
+	p7zip-rar \
 	php5 \
 	pstotext \
 	python \
+	python-cairo-dev \
 	python-chardet \
 	python-chm \
 	python-dev \
 	python-easygui \
+	python-gi-dev \
+	python-gtk2-dev \
+	python-jinja2 \
 	python-magic \
 	python-matplotlib \
 	python-mutagen \
 	python-nose \
 	python-numpy \
 	python-pandas \
+	python-qt4-dev \
 	python-scipy \
 	python-sympy \
 	python-tk \
@@ -166,9 +151,11 @@ apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 	r-cran-lattice \
 	r-cran-mass \
 	r-cran-matrix \
+	r-cran-mcmcpack \
 	r-cran-mgcv \
 	r-cran-nlme \
 	r-cran-nnet \
+	r-cran-rjags \
 	r-cran-rodbc \
 	r-cran-rpart \
 	r-cran-spatial \
@@ -180,6 +167,7 @@ apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 	ssh \
 	subversion \
 	texlive-latex-base \
+	tk-dev \
 	tree \
 	ttf-dejavu \
 	ubuntu-restricted-extras \
@@ -188,31 +176,12 @@ apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 	unrtf \
 	untex \
 	valgrind \
-	kcachegrind \
 	vim \
 	vim-doc \
 	vim-gnome \
 	vpnc \
 	wv \
-	xchat \
-	nvidia-cuda-toolkit \
-	libstdc++6-4.4-dbg \
-	libgcc1-dbg \
-	libgomp1-dbg \
-	doxygen \
-	libgtk2.0-dev \
-	libavcodec-dev \
-	libavformat-dev \
-	libswscale-dev \
-	libdc1394-22-dev \
-	libjpeg-dev \
-	libpng12-dev \
-	libtiff4-dev \
-	libjasper-dev \
-	libatlas-base-dev \
-	libnet-dropbox-api-perl \
-	libdata-random-perl \
-	libgd-perl
+	xchat
 
 
 #if lspci | grep -q VMware; then
@@ -220,21 +189,6 @@ apt-get -y install --install-suggests --fix-broken --ignore-hold --auto-remove \
 #		open-vm-tools \
 #		open-vm-toolbox \
 #		open-vm-dkms
-#fi
-
-#if ! [ -e /usr/share/X11/xorg.conf.d/60-synaptics-options.conf ]; then
-#cat > /usr/share/X11/xorg.conf.d/60-synaptics-options.conf << EOS
-#Section "InputClass"
-  #Identifier "touchpad catchall"
-  #Driver "synaptics"
-  #MatchIsTouchpad "on"
-  #MatchDevicePath "/dev/input/event*"
-
-  #Option "FingerLow" "40"
-  #Option "FingerHigh" "45"
-
-#EndSection
-#EOS
 #fi
 
 if ! [ -e /etc/cron.weekly/fstrim ]; then
@@ -247,7 +201,6 @@ EOS
 chmod 755 /etc/cron.weekly/fstrim
 fi
 
-apt-get -y install autofs
 sed -i -e 's/^#\/net	-hosts$/\/net	-hosts/' /etc/auto.master
 restart autofs
 
@@ -295,9 +248,9 @@ if ! [ -e /usr/local/lib/python2.7/dist-packages/rarfile.py ]; then
 fi
 
 if ! [ -e /usr/bin/vmware ]; then
-	if [ -e /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-9.0.2-1031769.x86_64.txt ]; then
-		yes yes | sh -c 'PAGER=/bin/cat sh /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-9.0.2-1031769.x86_64.txt --console --required'
-		/usr/lib/vmware/bin/vmware-vmx --new-sn `cat /net/hurley/storage/data/pub/software/VMware/serials/Workstation9.txt`
+	if [ -e /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle ]; then
+		yes yes | sh -c 'PAGER=/bin/cat sh /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle --console --required'
+		/usr/lib/vmware/bin/vmware-vmx --new-sn `cat /net/hurley/storage/data/pub/software/VMware/serials/Workstation10.txt`
 	else
 		echo "VMware Workstation not installed because the install isn't at the expected path" >&2
 	fi
@@ -311,14 +264,13 @@ fi
 
 if ! [ -e /usr/local/crashplan/bin ]; then
 	if ! [ -e /tmp/CrashPlan-install ]; then
-		wget -O- http://download.crashplan.com/installs/linux/install/CrashPlan/CrashPlan_3.5.3_Linux.tgz | tar -C /tmp -xzvf -
+		wget -O- http://download2.us.code42.com/installs/linux/install/CrashPlan/CrashPlan_3.6.3_Linux.tgz | tar -C /tmp -xzvf -
 	fi
 	pushd /tmp/CrashPlan-install
 	echo "fs.inotify.max_user_watches=10485760" >> /etc/sysctl.conf
 	sysctl -p
 	echo '#!/bin/sh' > more
 	chmod +x more
-	#PATH=.:/usr/bin:/bin:/usr/sbin:/sbin ./install.sh
 	bash -c 'PATH=.:/usr/bin:/bin:/usr/sbin:/sbin ./install.sh' << EOS
 
 
@@ -328,10 +280,6 @@ EOS
 	popd
 	rm -rf /tmp/CrashPlan-install
 fi
-
-#if ! [ -e /usr/local/heroku/bin/heroku ]; then
-#	wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-#fi
 
 # See http://www.reddit.com/r/linux/comments/17sov5/howto_beats_audio_hp_laptop_speakers_on/
 #if lspci | grep 'Audio device: Intel Corporation 7 Series/C210 Series Chipset Family High Definition Audio Controller (rev 04)'; then
