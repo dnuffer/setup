@@ -115,7 +115,11 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	octave-nnet \
 	octave-optim \
 	openjdk-6-jdk \
+	openjdk-6-source \
+	openjdk-6-doc \
 	openjdk-7-jdk \
+	openjdk-7-source \
+	openjdk-7-doc \
 	p7zip-full \
 	p7zip-rar \
 	php5 \
@@ -321,3 +325,11 @@ fi
 
 # May want to make this conditional on something, but I'm not sure what. Maybe just leave it out?
 #update-java-alternatives --set java-7-oracle
+
+if ! [ -e /usr/lib/jvm/java-7-openjdk-amd64/src.zip ]; then
+	ln -s ../java-7-openjdk-i386/src.zip /usr/lib/jvm/java-7-openjdk-amd64/src.zip
+fi
+
+if ! [ -e /usr/lib/jvm/java-6-openjdk-amd64/src.zip ]; then
+	ln -s ../java-6-openjdk-i386/src.zip /usr/lib/jvm/java-6-openjdk-amd64/src.zip
+fi
