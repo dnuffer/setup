@@ -186,6 +186,7 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	vim-gtk \
 	vpnc \
 	wv \
+	wxmaxima \
 	xchat
 
 
