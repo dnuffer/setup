@@ -63,18 +63,6 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install \
-	python-qt4-dev \
-	python-gi-dev \
-	python-cairo-dev \
-	python-gtk2-dev \
-	tk-dev \
-	jags \
-	r-cran-rjags \
-	r-cran-mcmcpack \
-	ifstat \
-	p7zip-full \
-	p7zip-rar \
-	python-jinja2 \
 	alarm-clock-applet \
 	antiword \
 	apt-file \
@@ -90,6 +78,7 @@ apt-get -y install \
 	coffeescript \
 	default-jdk \
 	djvulibre-bin \
+	doxygen \
 	dvipng \
 	erlang \
 	freemind \
@@ -106,20 +95,38 @@ apt-get -y install \
 	gradle-ppa \
 	groovy \
 	htop \
+	ifstat \
 	inkscape \
 	iotop \
 	ipython \
 	ipython-notebook \
+	jags \
+	kcachegrind \
 	libarmadillo-dev \
+	libatlas-base-dev \
+	libavcodec-dev \
+	libavformat-dev \
 	libboost1.48-all-dev \
 	libboost1.48-doc \
 	libcommons-cli-java \
 	libcurl4-openssl-dev \
+	libdc1394-22-dev \
+	libgcc1-dbg \
 	libgdbm-dev \
+	libglu1-mesa-dev \
+	libgomp1-dbg \
+	libgtk2.0-dev \
 	libimage-exiftool-perl \
+	libjasper-dev \
+	libjpeg-dev \
 	liblapack-dev \
+	libmudflap0-dbg \
+	libpng12-dev \
 	libprotobuf-dev \
 	libsqlite3-dev \
+	libstdc++6-4.4-dbg \
+	libswscale-dev \
+	libtiff4-dev \
 	libtool \
 	libwpd-tools \
 	libxml2-dev \
@@ -141,27 +148,35 @@ apt-get -y install \
 	nmap \
 	nodejs \
 	nunit-console \
+	nvidia-cuda-toolkit \
 	octave3.2 \
-	octave-optim \
-	octave-ga \
 	octave3.2-headers \
+	octave-ga \
 	octave-nnet \
+	octave-optim \
 	openjdk-6-jdk \
 	openjdk-7-jdk \
 	oracle-java7-installer \
+	p7zip-full \
+	p7zip-rar \
 	php5 \
 	pstotext \
 	python \
+	python-cairo-dev \
 	python-chardet \
 	python-chm \
 	python-dev \
 	python-easygui \
+	python-gi-dev \
+	python-gtk2-dev \
+	python-jinja2 \
 	python-magic \
 	python-matplotlib \
 	python-mutagen \
 	python-nose \
 	python-numpy \
 	python-pandas \
+	python-qt4-dev \
 	python-scipy \
 	python-sympy \
 	python-tk \
@@ -177,9 +192,11 @@ apt-get -y install \
 	r-cran-lattice \
 	r-cran-mass \
 	r-cran-matrix \
+	r-cran-mcmcpack \
 	r-cran-mgcv \
 	r-cran-nlme \
 	r-cran-nnet \
+	r-cran-rjags \
 	r-cran-rodbc \
 	r-cran-rpart \
 	r-cran-spatial \
@@ -193,6 +210,7 @@ apt-get -y install \
 	ssh \
 	subversion \
 	texlive-latex-base \
+	tk-dev \
 	tree \
 	ttf-dejavu \
 	ubuntu-restricted-extras \
@@ -201,29 +219,12 @@ apt-get -y install \
 	unrtf \
 	untex \
 	valgrind \
-	kcachegrind \
 	vim \
 	vim-doc \
 	vim-gnome \
 	vpnc \
 	wv \
-	xchat \
-	nvidia-cuda-toolkit \
-	libstdc++6-4.4-dbg \
-	libgcc1-dbg \
-	libgomp1-dbg \
-	libmudflap0-dbg \
-	doxygen \
-	libgtk2.0-dev \
-	libavcodec-dev \
-	libavformat-dev \
-	libswscale-dev \
-	libdc1394-22-dev \
-	libjpeg-dev \
-	libpng12-dev \
-	libtiff4-dev \
-	libjasper-dev \
-	libatlas-base-dev
+	xchat
 
 
 #if lspci | grep -q VMware; then

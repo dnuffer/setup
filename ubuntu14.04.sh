@@ -75,6 +75,7 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	libgcc1-dbg \
 	libgdbm-dev \
 	libgd-perl \
+	libglu1-mesa-dev \
 	libgomp1-dbg \
 	libgtk2.0-dev \
 	libimage-exiftool-perl \
@@ -114,12 +115,12 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	octave-ga \
 	octave-nnet \
 	octave-optim \
+	openjdk-6-doc \
 	openjdk-6-jdk \
 	openjdk-6-source \
-	openjdk-6-doc \
+	openjdk-7-doc \
 	openjdk-7-jdk \
 	openjdk-7-source \
-	openjdk-7-doc \
 	p7zip-full \
 	p7zip-rar \
 	php5 \
