@@ -42,6 +42,16 @@ Host gerrit
 EOS
 fi
 
+if ! grep '10\.29\.72\.\*' ~/.ssh/config; then
+	cat >> ~/.ssh/config << EOS
+
+Host 10.29.72.*
+	StrictHostKeyChecking no
+	UserKnownHostsFile=/dev/null
+
+EOS
+fi
+
 mkdir ~/.git_template || true
 git config --global init.templatedir '~/.git_template'
 if [ ! -e ~/.git_template/commit-msg ]; then
