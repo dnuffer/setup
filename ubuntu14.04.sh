@@ -23,6 +23,7 @@ apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	alarm-clock-applet \
+	anki \
 	antiword \
 	apt-file \
 	autofs \
@@ -214,13 +215,6 @@ restart autofs
 if ! dpkg -l google-chrome-stable | grep '^ii.*google-chrome-stable'; then
 	wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 	dpkg -i /tmp/google-chrome-stable_current_amd64.deb || true
-	apt-get -fy install
-fi
-
-if ! dpkg -l anki | grep '^ii.*anki'; then
-	latest_anki_url=$(wget -q -O- http://ankisrs.net/ | grep -o -P 'https?://.*anki[^/]*deb' | tail -1)
-	wget -O /tmp/anki.deb "$latest_anki_url"
-	dpkg -i /tmp/anki.deb || true
 	apt-get -fy install
 fi
 
