@@ -11,6 +11,12 @@ fi
 #sed -i -e 's/us.archive.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 #sed -i -e 's/security.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 
+if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
+	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+	echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
+	apt-get update
+fi
+
 apt-get update
 apt-get -y install git curl wget
 
@@ -22,6 +28,7 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	lxc-docker \
 	virtualbox \
 	vagrant \
 	alarm-clock-applet \
@@ -331,3 +338,4 @@ fi
 if ! [ -e /usr/lib/jvm/java-6-openjdk-amd64/src.zip ]; then
 	ln -s ../java-6-openjdk-i386/src.zip /usr/lib/jvm/java-6-openjdk-amd64/src.zip
 fi
+
