@@ -48,6 +48,12 @@ gconftool --set /apps/gnome-terminal/profiles/Default/background_color '#0000000
 gconftool --set /apps/gnome-terminal/profiles/Default/bold_color '#000000000000' --type string
 gconftool --set /apps/gnome-terminal/profiles/Default/foreground_color '#FFFFFFFFFFFF' --type string
 
+# Set keyboard shortcuts (remove workspace switching keys which conflict with ides)
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
+
 if ! grep ccache ~/.bashrc >/dev/null; then
 	echo "export PATH=/usr/lib/ccache:\$PATH" >> ~/.bashrc
 fi
