@@ -341,3 +341,24 @@ if ! [ -e /usr/lib/jvm/java-6-openjdk-amd64/src.zip ]; then
 	ln -s ../java-6-openjdk-i386/src.zip /usr/lib/jvm/java-6-openjdk-amd64/src.zip
 fi
 
+# The next three file modifications are to raise the ridicuously low file descriptor limit.
+if ! grep 'root hard nofile' /etc/security/limits.conf; then
+cat >> /etc/security/limits.conf << EOS
+* soft nofile 100000
+* hard nofile 100000
+root soft nofile 100000
+root hard nofile 100000
+EOS
+fi
+
+if ! grep 'session required pam_limits.so' /etc/pam.d/common-session; then
+cat >> /etc/pam.d/common-session << EOS
+session required pam_limits.so
+EOS
+fi
+
+if ! grep 'session required pam_limits.so' /etc/pam.d/common-session-noninteractive; then
+cat >> /etc/pam.d/common-session-noninteractive << EOS
+session required pam_limits.so
+EOS
+fi
