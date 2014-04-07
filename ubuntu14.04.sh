@@ -28,6 +28,8 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	httpie \
+	ttf-bitstream-vera \
 	npm \
 	nodejs-legacy \
 	lxc-docker \
