@@ -28,6 +28,8 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	libav-tools \
+	parallel \
 	httpie \
 	ttf-bitstream-vera \
 	npm \
@@ -129,6 +131,7 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	octave-ga \
 	octave-nnet \
 	octave-optim \
+	octave-statistics \
 	openjdk-6-doc \
 	openjdk-6-jdk \
 	openjdk-6-source \
