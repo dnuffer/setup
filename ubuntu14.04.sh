@@ -28,6 +28,7 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	smartmontools \
 	libav-tools \
 	parallel \
 	httpie \
