@@ -28,6 +28,9 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	libopencv-dev \
+	libhdf5-serial-dev \
+	libthrust-dev \
 	libclang-dev \
 	smartmontools \
 	libav-tools \
@@ -83,7 +86,7 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	libatlas-base-dev \
 	libavcodec-dev \
 	libavformat-dev \
-	libboost-all-dev \
+	libboost1.55-all-dev \
 	libboost-doc \
 	libcommons-cli-java \
 	libcurl4-openssl-dev \
@@ -228,6 +231,19 @@ fi
 
 sed -i -e 's/^#\/net	-hosts$/\/net	-hosts/' /etc/auto.master
 restart autofs
+
+if ! [ -e /usr/local/include/glog ]; then
+	glog_url=https://google-glog.googlecode.com/files/glog-0.3.3.tar.gz
+	pushd /tmp
+	wget "$glog_url"
+	tar zxvf glog-0.3.3.tar.gz
+	pushd glog-0.3.3
+	./configure
+	make && make install
+	popd
+	rm -rf glog-0.3.3
+	popd
+fi
 
 if ! dpkg -l google-chrome-stable | grep '^ii.*google-chrome-stable'; then
 	wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
