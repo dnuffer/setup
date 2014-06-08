@@ -65,6 +65,10 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	g++ \
 	gawk \
 	gcc \
+	gcc-4.6 \
+	g++-4.6 \
+	gcc-4.6-multilib \
+	g++-4.6-multilib \
 	gimp \
 	git-gui \
 	gitk \
