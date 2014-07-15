@@ -377,13 +377,13 @@ root hard nofile 100000
 EOS
 fi
 
-if ! grep 'session required pam_limits.so' /etc/pam.d/common-session; then
+if ! grep '^session required pam_limits.so$' /etc/pam.d/common-session; then
 cat >> /etc/pam.d/common-session << EOS
 session required pam_limits.so
 EOS
 fi
 
-if ! grep 'session required pam_limits.so' /etc/pam.d/common-session-noninteractive; then
+if ! grep '^session required pam_limits.so$' /etc/pam.d/common-session-noninteractive; then
 cat >> /etc/pam.d/common-session-noninteractive << EOS
 session required pam_limits.so
 EOS
@@ -442,4 +442,11 @@ Section "InputClass"
         Option "SoftButtonAreas" "0 0 0 0 0 0 0 0"
 EndSection
 EOS
+fi
+
+if ! grep -q '^GRUB_TERMINAL=console$' /etc/default/grub; then
+cat >> /etc/default/grub << EOS
+GRUB_TERMINAL=console
+EOS
+update-grub
 fi
