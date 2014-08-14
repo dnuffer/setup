@@ -108,6 +108,7 @@ apt-get -y install \
 	libavformat-dev \
 	libboost1.48-all-dev \
 	libboost1.48-doc \
+	libclang1-3.4 \
 	libcommons-cli-java \
 	libcurl4-openssl-dev \
 	libdc1394-22-dev \
