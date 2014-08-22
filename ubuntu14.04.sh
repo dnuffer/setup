@@ -326,6 +326,10 @@ EOS
 	rm -rf /tmp/CrashPlan-install
 fi
 
+
+echo "vm.swappiness=1" > /etc/sysctl.conf.d/99-dan.conf
+sysctl -p
+
 # See http://www.reddit.com/r/linux/comments/17sov5/howto_beats_audio_hp_laptop_speakers_on/
 #if lspci | grep 'Audio device: Intel Corporation 7 Series/C210 Series Chipset Family High Definition Audio Controller (rev 04)'; then
 	#if ! [ -e /lib/firmware/hda-jack-retask.fw ]; then
