@@ -11,11 +11,17 @@ fi
 #sed -i -e 's/us.archive.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 #sed -i -e 's/security.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 
-#if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
-	#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
-	#echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
-	#apt-get update
-#fi
+if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
+	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+	echo "deb http://get.docker.io/ubuntu docker main" > /etc/apt/sources.list.d/docker.list
+	apt-get update
+fi
+
+if ! [ -e /etc/apt/sources.list.d/webupd8team-java-trusty.list ]; then
+	add-apt-repository -y ppa:webupd8team/java
+	apt-get -y update
+fi
+
 
 apt-get update
 apt-get -y install git curl wget
@@ -28,6 +34,8 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	oracle-java8-installer \
+	docker \
 	libopencv-dev \
 	libhdf5-serial-dev \
 	libthrust-dev \
@@ -327,8 +335,8 @@ EOS
 fi
 
 
-echo "vm.swappiness=1" > /etc/sysctl.conf.d/99-dan.conf
-sysctl -p
+echo "vm.swappiness=1" > /etc/sysctl.d/99-dan.conf
+sysctl --system
 
 # See http://www.reddit.com/r/linux/comments/17sov5/howto_beats_audio_hp_laptop_speakers_on/
 #if lspci | grep 'Audio device: Intel Corporation 7 Series/C210 Series Chipset Family High Definition Audio Controller (rev 04)'; then
