@@ -34,8 +34,9 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	apt-transport-https \
 	oracle-java8-installer \
-	docker.io \
+	lxc-docker \
 	libopencv-dev \
 	libhdf5-serial-dev \
 	libthrust-dev \
