@@ -129,3 +129,14 @@ install_R_package caret
 install_R_package doParallel
 install_R_package e1071
 
+if ! [ -e ~/bin ]; then
+	mkdir ~/bin
+fi
+
+if ! grep -q \$HOME/bin ~/.bashrc; then
+	echo "export PATH=\$HOME/bin:\$PATH" >> ~/.bashrc
+fi
+
+if ! [ -e ~/bin/docker ]; then
+	ln -s /usr/bin/docker.io ~/bin/docker
+fi
