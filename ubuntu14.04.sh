@@ -8,6 +8,8 @@ if [ $UID != "0" ]; then
 	exit 1
 fi
 
+apt-get -y install git curl wget
+
 #sed -i -e 's/us.archive.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 #sed -i -e 's/security.ubuntu.com/mirrors.xmission.com/g' /etc/apt/sources.list
 
@@ -22,9 +24,14 @@ if ! [ -e /etc/apt/sources.list.d/webupd8team-java-trusty.list ]; then
 	apt-get -y update
 fi
 
+if ! [ -e /etc/apt/sources.list.d/cuda.list ]; then
+	wget -O /tmp/cuda.deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_6.5-14_amd64.deb
+	dpkg -i /tmp/cuda.deb
+	apt-get -y update
+fi
+
 
 apt-get update
-apt-get -y install git curl wget
 
 if ! [ -x /usr/lib/git-core/git-subtree ]; then
 	cp /usr/share/doc/git/contrib/subtree/git-subtree.sh /usr/lib/git-core/git-subtree
@@ -34,6 +41,7 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	cuda \
 	vlc \
 	apt-transport-https \
 	oracle-java8-installer \
@@ -144,7 +152,6 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	nmap \
 	nodejs \
 	nunit-console \
-	nvidia-cuda-toolkit \
 	octave \
 	octave-ga \
 	octave-nnet \
