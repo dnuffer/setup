@@ -42,6 +42,7 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	dos2unix \
 	vlc \
 	apt-transport-https \
 	oracle-java8-installer \
