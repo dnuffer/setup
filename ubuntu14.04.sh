@@ -147,7 +147,6 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	monodevelop \
 	mono-gmcs \
 	mono-mcs \
-	nautilus-dropbox \
 	nethogs \
 	network-manager-vpnc \
 	nmap \
