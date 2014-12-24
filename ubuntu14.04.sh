@@ -42,6 +42,8 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	capnproto \
+	libcapnp-dev \
 	dos2unix \
 	vlc \
 	apt-transport-https \
