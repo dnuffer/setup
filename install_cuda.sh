@@ -19,4 +19,5 @@ fi
 
 apt-get -y install --install-recommends --fix-broken --ignore-hold --auto-remove \
 	cuda \
-	nvidia-prime
+	nvidia-prime \
+	nvidia-modprobe
