@@ -82,14 +82,16 @@ if ! grep StrictHostKeyChecking ~/.ssh/config; then
 	echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 fi
 
-if ! [ -e ~/.gvm ]; then
-	bash < <(curl -s https://raw.github.com/moovweb/gvm/master/binscripts/gvm-installer)
-	source $HOME/.gvm/scripts/gvm
-	gvm install go1.2.1
-	gvm use go1.2.1
-fi
+# broken
+#if ! [ -e ~/.gvm ]; then
+#	bash < <(curl -s https://raw.github.com/moovweb/gvm/master/binscripts/gvm-installer)
+#	source $HOME/.gvm/scripts/gvm
+#	gvm install go1.2.1
+#	gvm use go1.2.1
+#fi
 
 if ! [ -e ~/.rvm ]; then
+	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	curl -L https://get.rvm.io | bash -s stable --ruby
 	set +e
 	set +u
@@ -137,6 +139,3 @@ if ! grep -q \$HOME/bin ~/.bashrc; then
 	echo "export PATH=\$HOME/bin:\$PATH" >> ~/.bashrc
 fi
 
-if ! [ -e ~/bin/docker ]; then
-	ln -s /usr/bin/docker.io ~/bin/docker
-fi

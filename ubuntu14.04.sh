@@ -42,6 +42,8 @@ fi
 apt-get -y dist-upgrade
 
 apt-get -y install --fix-broken --ignore-hold --auto-remove \
+	libopenblas-dev \
+	imagemagick \
 	capnproto \
 	libcapnp-dev \
 	dos2unix \
@@ -183,11 +185,18 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	python-nose \
 	python-numpy \
 	python-pandas \
+	python-pip \
 	python-qt4-dev \
 	python-scipy \
 	python-sympy \
 	python-tk \
 	python-virtualenv \
+	python3 \
+	python3-dev \
+	python3-pip \
+	python3-nose \
+	python3-numpy \
+	python3-scipy \
 	r-base \
 	r-base-dev \
 	r-cran-boot \
@@ -273,19 +282,21 @@ if ! dpkg -l google-chrome-stable | grep '^ii.*google-chrome-stable'; then
 	apt-get -fy install
 fi
 
-if ! dpkg -l sbt; then
-	latest_sbt_url=$(wget -q -O- http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html | grep -o -P 'https?://repo\.scala-sbt\.org/[^"]*sbt\.deb' | tail -1)
-	wget -O /tmp/sbt.deb "$latest_sbt_url"
-	dpkg -i /tmp/sbt.deb || true
-	apt-get -fy install
-fi
+# broken by the website
+#if ! dpkg -l sbt; then
+#	latest_sbt_url=$(wget -q -O- http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html | grep -o -P 'https?://repo\.scala-sbt\.org/[^"]*sbt\.deb' | tail -1)
+#	wget -O /tmp/sbt.deb "$latest_sbt_url"
+#	dpkg -i /tmp/sbt.deb || true
+#	apt-get -fy install
+#fi
 
-if ! [ -e /usr/local/scala/eclipse ]; then
-	latest_scala_eclipse_url=$(wget -q -O- http://scala-ide.org/download/sdk.html | grep -o -P 'https?://.*typesafe\.com/.*/scala-SDK-.*-linux.gtk.x86_64.tar.gz' | tail -1)
-	wget -O /tmp/scala-sdk.tar.gz "$latest_scala_eclipse_url"
-	mkdir -p /usr/local/scala
-	tar xzvf /tmp/scala-sdk.tar.gz -C /usr/local/scala
-fi
+# broken
+#if ! [ -e /usr/local/scala/eclipse ]; then
+#	latest_scala_eclipse_url=$(wget -q -O- http://scala-ide.org/download/sdk.html | grep -o -P 'https?://.*typesafe\.com/.*/scala-SDK-.*-linux.gtk.x86_64.tar.gz' | tail -1)
+#	wget -O /tmp/scala-sdk.tar.gz "$latest_scala_eclipse_url"
+#	mkdir -p /usr/local/scala
+#	tar xzvf /tmp/scala-sdk.tar.gz -C /usr/local/scala
+#fi
 
 if ! [ -e /usr/bin/rstudio ]; then
 	latest_r_studio_url=$(wget -q -O- http://www.rstudio.com/ide/download/desktop | grep -o -P 'https?://.*\.rstudio\.org/rstudio-.*-amd64\.deb' | tail -1)
@@ -310,73 +321,47 @@ if ! [ -e /usr/local/lib/python2.7/dist-packages/rarfile.py ]; then
 	pip install rarfile
 fi
 
-if ! [ -e /usr/bin/vmware ]; then
-	if [ -e /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle ]; then
-		yes yes | sh -c 'PAGER=/bin/cat sh /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle --console --required'
-		/usr/lib/vmware/bin/vmware-vmx --new-sn `cat /net/hurley/storage/data/pub/software/VMware/serials/Workstation10.txt`
-	else
-		echo "VMware Workstation not installed because the install isn't at the expected path" >&2
+install_vmware=false
+if [ "$install_vmware" = "true" ]; then
+	if ! [ -e /usr/bin/vmware ]; then
+		if [ -e /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle ]; then
+			yes yes | sh -c 'PAGER=/bin/cat sh /net/hurley/storage/data/pub/software/VMware/VMware-Workstation-Full-10.0.1-1379776.x86_64.bundle --console --required'
+			/usr/lib/vmware/bin/vmware-vmx --new-sn `cat /net/hurley/storage/data/pub/software/VMware/serials/Workstation10.txt`
+		else
+			echo "VMware Workstation not installed because the install isn't at the expected path" >&2
+		fi
+	fi
+
+	if ! [ -e /usr/lib/vmware-cip/5.5.0 ]; then
+		if [ -e /net/hurley/storage/data/pub/software/VMware/VMware-ClientIntegrationPlugin-5.5.0.x86_64.bundle ]; then
+			yes yes | sh -c 'PAGER=/bin/cat sh /net/hurley/storage/data/pub/software/VMware/VMware-ClientIntegrationPlugin-5.5.0.x86_64.bundle --console --required'
+		fi
 	fi
 fi
 
-if ! [ -e /usr/lib/vmware-cip/5.5.0 ]; then
-	if [ -e /net/hurley/storage/data/pub/software/VMware/VMware-ClientIntegrationPlugin-5.5.0.x86_64.bundle ]; then
-		yes yes | sh -c 'PAGER=/bin/cat sh /net/hurley/storage/data/pub/software/VMware/VMware-ClientIntegrationPlugin-5.5.0.x86_64.bundle --console --required'
-	fi
-fi
-
-if ! [ -e /usr/local/crashplan/bin ]; then
-	if ! [ -e /tmp/CrashPlan-install ]; then
-		wget -O- http://download2.us.code42.com/installs/linux/install/CrashPlan/CrashPlan_3.6.3_Linux.tgz | tar -C /tmp -xzvf -
-	fi
-	pushd /tmp/CrashPlan-install
-	echo "fs.inotify.max_user_watches=10485760" >> /etc/sysctl.conf
-	sysctl -p
-	echo '#!/bin/sh' > more
-	chmod +x more
-	bash -c 'PATH=.:/usr/bin:/bin:/usr/sbin:/sbin ./install.sh' << EOS
-
-
-
-yes
-EOS
-	popd
-	rm -rf /tmp/CrashPlan-install
-fi
+# broken
+#if ! [ -e /usr/local/crashplan/bin ]; then
+#	if ! [ -e /tmp/CrashPlan-install ]; then
+#		wget -O- http://download.code42.com/installs/linux/install/CrashPlan/CrashPlan_3.7.0_Linux.tgz | tar -C /tmp -xzvf -
+#	fi
+#	pushd /tmp/CrashPlan-install
+#	echo "fs.inotify.max_user_watches=10485760" >> /etc/sysctl.conf
+#	sysctl -p
+#	echo '#!/bin/sh' > more
+#	chmod +x more
+#	bash -c 'PATH=.:/usr/bin:/bin:/usr/sbin:/sbin ./install.sh' << EOS
+#
+#
+#
+#yes
+#EOS
+#	popd
+#	rm -rf /tmp/CrashPlan-install
+#fi
 
 
 echo "vm.swappiness=1" > /etc/sysctl.d/99-dan.conf
 sysctl --system
-
-# See http://www.reddit.com/r/linux/comments/17sov5/howto_beats_audio_hp_laptop_speakers_on/
-#if lspci | grep 'Audio device: Intel Corporation 7 Series/C210 Series Chipset Family High Definition Audio Controller (rev 04)'; then
-	#if ! [ -e /lib/firmware/hda-jack-retask.fw ]; then
-		#cat > /lib/firmware/hda-jack-retask.fw << EOS
-#[codec]
-#0x111d76e0 0x103c181b 0
-
-#[pincfg]
-#0x0a 0x04a11020
-#0x0b 0x0421101f
-#0x0c 0x40f000f0
-#0x0d 0x90170150
-#0x0e 0x40f000f0
-#0x0f 0x90170150
-#0x10 0x90170151
-#0x11 0xd5a30130
-#0x1f 0x40f000f0
-#0x20 0x40f000f0
-#EOS
-	#fi
-
-	#if ! [ -e /etc/modprobe.d/hda-jack-retask.conf ]; then
-        #cat > /etc/modprobe.d/hda-jack-retask.conf << EOS
-## This file was added by the program 'hda-jack-retask'.
-## If you want to revert the changes made by this program, you can simply erase this file and reboot your computer.
-#options snd-hda-intel patch=hda-jack-retask.fw,hda-jack-retask.fw,hda-jack-retask.fw,hda-jack-retask.fw
-#EOS
-	#fi
-#fi
 
 # May want to make this conditional on something, but I'm not sure what. Maybe just leave it out?
 #update-java-alternatives --set java-7-oracle
