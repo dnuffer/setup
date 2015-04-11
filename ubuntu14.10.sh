@@ -41,7 +41,7 @@ fi
 
 apt-get -y dist-upgrade
 
-apt-get -y install --fix-broken --ignore-hold --auto-remove \
+apt-get install --fix-broken \
 	capnproto \
 	libcapnp-dev \
 	dos2unix \

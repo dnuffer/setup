@@ -41,7 +41,7 @@ fi
 
 apt-get -y dist-upgrade
 
-apt-get -y install --fix-broken --ignore-hold --auto-remove \
+apt-get install --fix-broken \
 	sshfs \
 	libopenblas-dev \
 	imagemagick \
@@ -192,12 +192,16 @@ apt-get -y install --fix-broken --ignore-hold --auto-remove \
 	python-sympy \
 	python-tk \
 	python-virtualenv \
+	python-mako \
+	python-pytools \
 	python3 \
 	python3-dev \
 	python3-pip \
 	python3-nose \
 	python3-numpy \
 	python3-scipy \
+	python3-mako \
+	python3-pytools \
 	r-base \
 	r-base-dev \
 	r-cran-boot \
