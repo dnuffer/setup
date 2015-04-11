@@ -42,37 +42,16 @@ fi
 apt-get -y dist-upgrade
 
 apt-get install --fix-broken \
-	sshfs \
-	libopenblas-dev \
-	imagemagick \
-	capnproto \
-	libcapnp-dev \
-	dos2unix \
-	vlc \
-	apt-transport-https \
-	oracle-java8-installer \
-	lxc-docker \
-	libopencv-dev \
-	libhdf5-serial-dev \
-	libthrust-dev \
-	libclang-dev \
-	smartmontools \
-	libav-tools \
-	parallel \
-	httpie \
-	ttf-bitstream-vera \
-	npm \
-	nodejs-legacy \
-	virtualbox \
-	vagrant \
 	alarm-clock-applet \
 	anki \
 	antiword \
 	apt-file \
+	apt-transport-https \
 	autofs \
 	bison \
 	build-essential \
 	bzr \
+	capnproto \
 	catdoc \
 	ccache \
 	clang \
@@ -82,28 +61,33 @@ apt-get install --fix-broken \
 	coffeescript \
 	default-jdk \
 	djvulibre-bin \
+	dos2unix \
 	doxygen \
 	dvipng \
 	erlang \
 	freemind \
 	g++ \
+	g++-4.6 \
+	g++-4.6-multilib \
 	gawk \
 	gcc \
 	gcc-4.6 \
-	g++-4.6 \
 	gcc-4.6-multilib \
-	g++-4.6-multilib \
+	gfortran \
 	gimp \
+	git \
 	git-gui \
-	gitk \
 	git-svn \
+	gitk \
 	gnustep-devel \
 	gobjc \
 	gobjc++ \
 	gradle \
 	groovy \
 	htop \
+	httpie \
 	ifstat \
+	imagemagick \
 	inkscape \
 	iotop \
 	ipython \
@@ -112,50 +96,72 @@ apt-get install --fix-broken \
 	kcachegrind \
 	libarmadillo-dev \
 	libatlas-base-dev \
+	libav-tools \
 	libavcodec-dev \
 	libavformat-dev \
-	libboost1.55-all-dev \
 	libboost-doc \
+	libboost1.55-all-dev \
+	libbz2-dev \
+	libcapnp-dev \
+	libclang-dev \
 	libcommons-cli-java \
 	libcurl4-openssl-dev \
 	libdata-random-perl \
 	libdc1394-22-dev \
+	libffi-dev \
+	libfreeimage-dev \
 	libgcc1-dbg \
-	libgdbm-dev \
 	libgd-perl \
+	libgdbm-dev \
+	libgflags-dev \
 	libglu1-mesa-dev \
 	libgomp1-dbg \
+	libgoogle-glog-dev \
+	libgsl0-dev \
 	libgtk2.0-dev \
+	libhdf5-serial-dev \
 	libimage-exiftool-perl \
 	libjasper-dev \
 	libjpeg-dev \
+	libjpeg62 \
 	liblapack-dev \
+	libleveldb-dev \
+	liblmdb-dev \
 	libnet-dropbox-api-perl \
+	libopenblas-dev \
+	libopencv-dev \
 	libpng12-dev \
 	libprotobuf-dev \
+	libsnappy-dev \
 	libsqlite3-dev \
+	libssl-dev \
 	libstdc++6-4.4-dbg \
 	libswscale-dev \
+	libthrust-dev \
 	libtiff4-dev \
 	libtool \
 	libwpd-tools \
 	libxml2-dev \
+	libxslt-dev \
 	libxslt1-dev \
 	libyaml-dev \
 	lua5.2 \
 	lua5.2-doc \
+	lxc-docker \
 	lyx \
 	maven \
 	meld \
 	mercurial \
 	molly-guard \
-	monodevelop \
 	mono-gmcs \
 	mono-mcs \
+	monodevelop \
 	nethogs \
 	network-manager-vpnc \
 	nmap \
 	nodejs \
+	nodejs-legacy \
+	npm \
 	nunit-console \
 	octave \
 	octave-ga \
@@ -167,9 +173,12 @@ apt-get install --fix-broken \
 	openjdk-7-doc \
 	openjdk-7-jdk \
 	openjdk-7-source \
+	oracle-java8-installer \
 	p7zip-full \
 	p7zip-rar \
+	parallel \
 	php5 \
+	protobuf-compiler \
 	pstotext \
 	python \
 	python-cairo-dev \
@@ -181,27 +190,30 @@ apt-get install --fix-broken \
 	python-gtk2-dev \
 	python-jinja2 \
 	python-magic \
+	python-mako \
 	python-matplotlib \
 	python-mutagen \
 	python-nose \
 	python-numpy \
 	python-pandas \
+	python-pil \
 	python-pip \
+	python-pytools \
 	python-qt4-dev \
 	python-scipy \
 	python-sympy \
 	python-tk \
 	python-virtualenv \
-	python-mako \
-	python-pytools \
+	python-yaml \
 	python3 \
 	python3-dev \
-	python3-pip \
+	python3-mako \
 	python3-nose \
 	python3-numpy \
-	python3-scipy \
-	python3-mako \
+	python3-pil \
+	python3-pip \
 	python3-pytools \
+	python3-scipy \
 	r-base \
 	r-base-dev \
 	r-cran-boot \
@@ -226,22 +238,28 @@ apt-get install --fix-broken \
 	scala \
 	screen \
 	shutter \
+	smartmontools \
 	ssh \
+	sshfs \
 	subversion \
 	texlive-latex-base \
 	tk-dev \
 	tree \
+	ttf-bitstream-vera \
 	ttf-dejavu \
 	ubuntu-restricted-extras \
 	unattended-upgrades \
 	unrar \
 	unrtf \
 	untex \
+	vagrant \
 	valgrind \
 	vim \
 	vim-doc \
 	vim-gnome \
 	vim-gtk \
+	virtualbox \
+	vlc \
 	vpnc \
 	wv \
 	wxmaxima \
