@@ -77,8 +77,10 @@ apt-get install --fix-broken \
 	gimp \
 	git \
 	git-gui \
-	git-svn \
 	gitk \
+	git-svn \
+	gnuplot \
+	gnuplot-x11 \
 	gnustep-devel \
 	gobjc \
 	gobjc++ \
@@ -96,11 +98,11 @@ apt-get install --fix-broken \
 	kcachegrind \
 	libarmadillo-dev \
 	libatlas-base-dev \
-	libav-tools \
 	libavcodec-dev \
 	libavformat-dev \
-	libboost-doc \
+	libav-tools \
 	libboost1.55-all-dev \
+	libboost-doc \
 	libbz2-dev \
 	libcapnp-dev \
 	libclang-dev \
@@ -109,21 +111,23 @@ apt-get install --fix-broken \
 	libdata-random-perl \
 	libdc1394-22-dev \
 	libffi-dev \
+	libfftw3-dev \
 	libfreeimage-dev \
 	libgcc1-dbg \
-	libgd-perl \
 	libgdbm-dev \
+	libgd-perl \
 	libgflags-dev \
 	libglu1-mesa-dev \
 	libgomp1-dbg \
 	libgoogle-glog-dev \
+	libgraphicsmagick1-dev \
 	libgsl0-dev \
 	libgtk2.0-dev \
 	libhdf5-serial-dev \
 	libimage-exiftool-perl \
 	libjasper-dev \
-	libjpeg-dev \
 	libjpeg62 \
+	libjpeg-dev \
 	liblapack-dev \
 	libleveldb-dev \
 	liblmdb-dev \
@@ -131,8 +135,16 @@ apt-get install --fix-broken \
 	libopenblas-dev \
 	libopencv-dev \
 	libpng12-dev \
+	libpng-dev \
 	libprotobuf-dev \
+	libqt4-core \
+	libqt4-dev \
+	libqt4-gui \
+	libreadline-dev \
+	libsdl2-dev \
 	libsnappy-dev \
+	libsox-dev \
+	libsox-fmt-all \
 	libsqlite3-dev \
 	libssl-dev \
 	libstdc++6-4.4-dbg \
@@ -142,9 +154,10 @@ apt-get install --fix-broken \
 	libtool \
 	libwpd-tools \
 	libxml2-dev \
-	libxslt-dev \
 	libxslt1-dev \
+	libxslt-dev \
 	libyaml-dev \
+	libzmq3-dev \
 	lua5.2 \
 	lua5.2-doc \
 	lxc-docker \
@@ -153,9 +166,10 @@ apt-get install --fix-broken \
 	meld \
 	mercurial \
 	molly-guard \
+	monodevelop \
 	mono-gmcs \
 	mono-mcs \
-	monodevelop \
+	ncurses-dev \
 	nethogs \
 	network-manager-vpnc \
 	nmap \
@@ -181,6 +195,15 @@ apt-get install --fix-broken \
 	protobuf-compiler \
 	pstotext \
 	python \
+	python3 \
+	python3-dev \
+	python3-mako \
+	python3-nose \
+	python3-numpy \
+	python3-pil \
+	python3-pip \
+	python3-pytools \
+	python3-scipy \
 	python-cairo-dev \
 	python-chardet \
 	python-chm \
@@ -205,15 +228,6 @@ apt-get install --fix-broken \
 	python-tk \
 	python-virtualenv \
 	python-yaml \
-	python3 \
-	python3-dev \
-	python3-mako \
-	python3-nose \
-	python3-numpy \
-	python3-pil \
-	python3-pip \
-	python3-pytools \
-	python3-scipy \
 	r-base \
 	r-base-dev \
 	r-cran-boot \
@@ -239,6 +253,7 @@ apt-get install --fix-broken \
 	screen \
 	shutter \
 	smartmontools \
+	sox \
 	ssh \
 	sshfs \
 	subversion \
@@ -252,6 +267,7 @@ apt-get install --fix-broken \
 	unrar \
 	unrtf \
 	untex \
+	unzip \
 	vagrant \
 	valgrind \
 	vim \
