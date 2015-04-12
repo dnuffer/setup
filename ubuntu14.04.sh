@@ -134,6 +134,7 @@ apt-get install --fix-broken \
 	libnet-dropbox-api-perl \
 	libopenblas-dev \
 	libopencv-dev \
+	libopenjpeg-dev \
 	libpng12-dev \
 	libpng-dev \
 	libprotobuf-dev \
@@ -152,6 +153,7 @@ apt-get install --fix-broken \
 	libthrust-dev \
 	libtiff4-dev \
 	libtool \
+	libwebp-dev \
 	libwpd-tools \
 	libxml2-dev \
 	libxslt1-dev \
@@ -187,6 +189,7 @@ apt-get install --fix-broken \
 	openjdk-7-doc \
 	openjdk-7-jdk \
 	openjdk-7-source \
+	openjpeg-tools \
 	oracle-java8-installer \
 	p7zip-full \
 	p7zip-rar \
@@ -277,6 +280,7 @@ apt-get install --fix-broken \
 	virtualbox \
 	vlc \
 	vpnc \
+	webp \
 	wv \
 	wxmaxima \
 	xchat
