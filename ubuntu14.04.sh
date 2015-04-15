@@ -59,6 +59,8 @@ apt-get install --fix-broken \
 	clojure1.4 \
 	cmake \
 	coffeescript \
+	compizconfig-settings-manager \
+	compiz-plugins-extra \
 	default-jdk \
 	djvulibre-bin \
 	dos2unix \
