@@ -95,6 +95,8 @@ apt-get install --fix-broken \
 	inkscape \
 	iotop \
 	ipython \
+	ipython3 \
+	ipython3-notebook \
 	ipython-notebook \
 	jags \
 	kcachegrind \
@@ -209,6 +211,8 @@ apt-get install --fix-broken \
 	python3-pip \
 	python3-pytools \
 	python3-scipy \
+	python3-skimage \
+	python3-zmq \
 	python-cairo-dev \
 	python-chardet \
 	python-chm \
@@ -220,15 +224,21 @@ apt-get install --fix-broken \
 	python-magic \
 	python-mako \
 	python-matplotlib \
+	python-matplotlib-doc \
 	python-mutagen \
 	python-nose \
 	python-numpy \
+	python-opencv \
 	python-pandas \
 	python-pil \
 	python-pip \
 	python-pytools \
 	python-qt4-dev \
 	python-scipy \
+	python-skimage \
+	python-skimage-doc \
+	python-sklearn \
+	python-sklearn-doc \
 	python-sympy \
 	python-tk \
 	python-virtualenv \
@@ -267,6 +277,7 @@ apt-get install --fix-broken \
 	tree \
 	ttf-bitstream-vera \
 	ttf-dejavu \
+	ttf-staypuft \
 	ubuntu-restricted-extras \
 	unattended-upgrades \
 	unrar \
@@ -496,9 +507,9 @@ EndSection
 EOS
 fi
 
-if ! grep -q '^GRUB_TERMINAL=console$' /etc/default/grub; then
-cat >> /etc/default/grub << EOS
-GRUB_TERMINAL=console
-EOS
-update-grub
-fi
+#if ! grep -q '^GRUB_TERMINAL=console$' /etc/default/grub; then
+#cat >> /etc/default/grub << EOS
+#GRUB_TERMINAL=console
+#EOS
+#update-grub
+#fi
