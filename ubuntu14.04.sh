@@ -205,8 +205,10 @@ apt-get install --fix-broken \
 	python3 \
 	python3-dev \
 	python3-mako \
+	python3-matplotlib \
 	python3-nose \
 	python3-numpy \
+	python3-pandas \
 	python3-pil \
 	python3-pip \
 	python3-pytools \
