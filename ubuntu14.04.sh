@@ -274,6 +274,7 @@ apt-get install --fix-broken \
 	ssh \
 	sshfs \
 	subversion \
+	sysstat \
 	texlive-latex-base \
 	tk-dev \
 	tree \
