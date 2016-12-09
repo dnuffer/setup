@@ -21,7 +21,7 @@ apt-get -y dist-upgrade
 
 GO_PKGS="golang"
 DOCKER_PKGS="docker.io"
-MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap"
+MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic"
 MISC="tmux"
 
 apt-get install --fix-broken \
@@ -93,6 +93,7 @@ apt-get install --fix-broken \
 	python-mutagen \
 	python-nose \
 	python-numpy \
+	python-opencv \
 	python-pandas \
 	python-pip \
 	python-scipy \
