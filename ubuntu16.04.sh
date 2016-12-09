@@ -19,7 +19,12 @@ apt-get update
 
 apt-get -y dist-upgrade
 
+GO_PKGS="golang"
+DOCKER_PKGS="docker.io"
+
 apt-get install --fix-broken \
+	$GO_PKGS \
+	$DOCKER_PKGS \
 	alarm-clock-applet \
 	anki \
 	antiword \
@@ -153,8 +158,10 @@ apt-get install --fix-broken \
 	wxmaxima
 
 
-sed -i -e 's/^#\/net	-hosts$/\/net	-hosts/' /etc/auto.master
-service autofs restart
+if ! grep -q "^/net\s*-hosts$" /etc/auto.master; then
+	sed -i -e 's/^#\/net	-hosts$/\/net	-hosts/' /etc/auto.master
+	service autofs restart
+fi
 
 if ! dpkg -l google-chrome-stable | grep '^ii.*google-chrome-stable'; then
 	wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
