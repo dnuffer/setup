@@ -21,12 +21,14 @@ apt-get -y dist-upgrade
 
 GO_PKGS="golang"
 DOCKER_PKGS="docker.io"
+MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap"
+MISC="tmux"
 
 apt-get install --fix-broken \
 	$GO_PKGS \
 	$DOCKER_PKGS \
-	alarm-clock-applet \
-	anki \
+	$MY_TOOLS \
+	$MISC \
 	antiword \
 	apt-file \
 	apt-transport-https \
@@ -46,16 +48,8 @@ apt-get install --fix-broken \
 	g++ \
 	gawk \
 	gcc \
-	gimp \
-	git-gui \
-	gitk \
 	git-svn \
 	gradle \
-	htop \
-	httpie \
-	ifstat \
-	inkscape \
-	iotop \
 	ipython \
 	ipython-notebook \
 	kcachegrind \
@@ -64,12 +58,7 @@ apt-get install --fix-broken \
 	libopencv-dev \
 	libtool \
 	libwpd-tools \
-	lyx \
-	meld \
 	mercurial \
-	molly-guard \
-	nethogs \
-	nmap \
 	octave \
 	openjdk-8-dbg \
 	openjdk-8-doc \
