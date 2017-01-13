@@ -107,6 +107,7 @@ apt-get install --fix-broken \
 	r-cran-cluster \
 	r-cran-codetools \
 	r-cran-foreign \
+	r-cran-ggplot2 \
 	r-cran-kernsmooth \
 	r-cran-lattice \
 	r-cran-mass \
