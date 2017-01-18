@@ -52,6 +52,8 @@ apt-get install --fix-broken \
 	gradle \
 	ipython \
 	ipython-notebook \
+	ipython3 \
+	ipython3-notebook \
 	kcachegrind \
 	libav-tools \
 	libimage-exiftool-perl \
