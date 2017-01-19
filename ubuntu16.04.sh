@@ -21,7 +21,7 @@ apt-get -y dist-upgrade
 
 GO_PKGS="golang"
 DOCKER_PKGS="docker.io"
-MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic"
+MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu"
 MISC="tmux"
 
 apt-get install --fix-broken \
