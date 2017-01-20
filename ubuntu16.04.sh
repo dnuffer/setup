@@ -51,9 +51,9 @@ apt-get install --fix-broken \
 	git-svn \
 	gradle \
 	ipython \
-	ipython-notebook \
 	ipython3 \
 	ipython3-notebook \
+	ipython-notebook \
 	kcachegrind \
 	libav-tools \
 	libimage-exiftool-perl \
@@ -71,8 +71,6 @@ apt-get install --fix-broken \
 	parallel \
 	pstotext \
 	python \
-	python-all \
-	python-all-dev \
 	python3 \
 	python3-all \
 	python3-all-dev \
@@ -86,8 +84,13 @@ apt-get install --fix-broken \
 	python3-pip \
 	python3-scipy \
 	python3-setuptools \
+	python3-skimage \
+	python3-sklearn \
+	python3-sklearn-pandas \
 	python3-virtualenv \
 	python3-wheel \
+	python-all \
+	python-all-dev \
 	python-chm \
 	python-dev \
 	python-magic \
@@ -100,6 +103,11 @@ apt-get install --fix-broken \
 	python-pip \
 	python-scipy \
 	python-setuptools \
+	python-skimage \
+	python-skimage-doc \
+	python-sklearn \
+	python-sklearn-doc \
+	python-sklearn-pandas \
 	python-virtualenv \
 	python-wheel \
 	r-base \
