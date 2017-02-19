@@ -56,8 +56,10 @@ apt-get install --fix-broken \
 	ipython-notebook \
 	kcachegrind \
 	libav-tools \
+	libcurl4-openssl-dev \
 	libimage-exiftool-perl \
 	libopencv-dev \
+	libssl-dev \
 	libtool \
 	libwpd-tools \
 	mercurial \
@@ -156,7 +158,8 @@ apt-get install --fix-broken \
 	virtualbox \
 	vlc \
 	wv \
-	wxmaxima
+	wxmaxima \
+	zlib1g-dev
 
 
 if ! grep -q "^/net\s*-hosts$" /etc/auto.master; then
