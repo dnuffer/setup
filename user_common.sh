@@ -90,15 +90,16 @@ fi
 #	gvm use go1.2.1
 #fi
 
-if ! [ -e ~/.rvm ]; then
-	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-	curl -L https://get.rvm.io | bash -s stable --ruby
-	set +e
-	set +u
-	source $HOME/.rvm/scripts/rvm
-	set -e
-	set -u
-fi
+# don't use ruby anymore
+#if ! [ -e ~/.rvm ]; then
+#	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+#	curl -L https://get.rvm.io | bash -s stable --ruby
+#	set +e
+#	set +u
+#	source $HOME/.rvm/scripts/rvm
+#	set -e
+#	set -u
+#fi
 
 if ! [ -e ~/.Renviron ]; then
 	echo 'R_LIBS_USER="~/.Rlibs"' > ~/.Renviron
