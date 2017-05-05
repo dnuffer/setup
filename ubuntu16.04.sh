@@ -21,7 +21,7 @@ apt-get -y dist-upgrade
 
 GO_PKGS="golang"
 DOCKER_PKGS="docker.io"
-MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu python-csvkit python3-csvkit whois lm-sensors"
+MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu python-csvkit python3-csvkit whois lm-sensors texlive-full"
 MISC="tmux"
 
 apt-get install --fix-broken \
@@ -139,7 +139,6 @@ apt-get install --fix-broken \
 	smartmontools \
 	ssh \
 	subversion \
-	texlive-latex-base \
 	tree \
 	ttf-bitstream-vera \
 	ttf-dejavu \
