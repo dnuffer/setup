@@ -10,14 +10,16 @@ fi
 
 apt-get -y install git curl wget
 
-if [ ! -e /etc/apt/sources.list.d/recoll-backports-ubuntu-recoll-1_15-on-xenial.list ]; then
+RELEASE_CODENAME=$(lsb_release -cs)
+
+if [ ! -e /etc/apt/sources.list.d/recoll-backports-ubuntu-recoll-1_15-on-$RELEASE_CODENAME.list ]; then
 	add-apt-repository -y ppa:recoll-backports/recoll-1.15-on
 	apt-get -y update
 fi
 
 if [ ! -e /etc/apt/sources.list.d/insync.list ]; then
 	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
-	echo 'deb http://apt.insynchq.com/ubuntu xenial non-free contrib' > /etc/apt/sources.list.d/insync.list
+	echo 'deb http://apt.insynchq.com/ubuntu '$RELASE_CODENAME' non-free contrib' > /etc/apt/sources.list.d/insync.list
 	apt-get -y update
 fi
 
