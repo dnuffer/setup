@@ -193,6 +193,12 @@ if ! dpkg -l google-talkplugin; then
 	apt-get -fy install
 fi
 
+if ! dpkg -l rescuetime; then
+	wget -O /tmp/rescuetime_current_amd64.deb https://www.rescuetime.com/installers/rescuetime_current_amd64.deb
+	dpkg -i /tmp/rescuetime_current_amd64.deb || true
+	apt-get -fy install
+fi
+
 # Install python epub module for recoll indexing of epub files
 if ! [ -e /usr/local/lib/python2.7/dist-packages/epub ]; then
 	pip install epub
