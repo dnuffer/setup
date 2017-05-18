@@ -31,51 +31,33 @@ GO_PKGS="golang"
 DOCKER_PKGS="docker.io"
 MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu python-csvkit python3-csvkit whois lm-sensors texlive-full insync"
 MISC="tmux"
+DEV_PACKAGES="bison libboost-all-dev build-essential bzr ccache clang cmake g++ gcc git-svn gradle kcachegrind libcurl4-openssl-dev libopencv-dev libssl-dev libtool mercurial openjdk-8-dbg openjdk-8-doc openjdk-8-jdk openjdk-8-source zlib1g-dev"
 
 apt-get install --fix-broken \
 	$GO_PKGS \
 	$DOCKER_PKGS \
 	$MY_TOOLS \
 	$MISC \
+	$DEV_PACKAGES \
 	antiword \
 	apt-file \
 	apt-transport-https \
 	autofs \
-	bison \
-	build-essential \
-	bzr \
 	catdoc \
-	ccache \
-	clang \
-	cmake \
 	default-jdk \
 	djvulibre-bin \
 	dos2unix \
 	doxygen \
 	dvipng \
-	g++ \
 	gawk \
-	gcc \
-	git-svn \
-	gradle \
 	ipython \
 	ipython3 \
 	ipython3-notebook \
 	ipython-notebook \
-	kcachegrind \
 	libav-tools \
-	libcurl4-openssl-dev \
 	libimage-exiftool-perl \
-	libopencv-dev \
-	libssl-dev \
-	libtool \
 	libwpd-tools \
-	mercurial \
 	octave \
-	openjdk-8-dbg \
-	openjdk-8-doc \
-	openjdk-8-jdk \
-	openjdk-8-source \
 	p7zip-full \
 	p7zip-rar \
 	parallel \
@@ -165,8 +147,7 @@ apt-get install --fix-broken \
 	virtualbox \
 	vlc \
 	wv \
-	wxmaxima \
-	zlib1g-dev
+	wxmaxima
 
 
 if ! grep -q "^/net\s*-hosts$" /etc/auto.master; then
