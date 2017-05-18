@@ -72,9 +72,11 @@ apt-get install --fix-broken \
 	python3-mutagen \
 	python3-nose \
 	python3-numpy \
+	python3-numpydoc \
 	python3-pandas \
 	python3-pip \
 	python3-scipy \
+	python3-seaborn \
 	python3-setuptools \
 	python3-skimage \
 	python3-sklearn \
@@ -90,10 +92,13 @@ apt-get install --fix-broken \
 	python-mutagen \
 	python-nose \
 	python-numpy \
+	python-numpydoc \
 	python-opencv \
 	python-pandas \
+	python-pandas-doc \
 	python-pip \
 	python-scipy \
+	python-seaborn \
 	python-setuptools \
 	python-skimage \
 	python-skimage-doc \
