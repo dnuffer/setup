@@ -32,6 +32,7 @@ DOCKER_PKGS="docker.io"
 MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu python-csvkit python3-csvkit whois lm-sensors texlive-full insync"
 MISC="tmux"
 DEV_PACKAGES="bison libboost-all-dev build-essential bzr ccache clang cmake g++ gcc git-svn gradle kcachegrind libcurl4-openssl-dev libopencv-dev libssl-dev libtool mercurial openjdk-8-dbg openjdk-8-doc openjdk-8-jdk openjdk-8-source zlib1g-dev"
+CSHARP_DEV_PACKAGES="monodevelop monodevelop-database monodevelop-nunit monodevelop-versioncontrol"
 
 apt-get install --fix-broken \
 	$GO_PKGS \
@@ -39,6 +40,7 @@ apt-get install --fix-broken \
 	$MY_TOOLS \
 	$MISC \
 	$DEV_PACKAGES \
+	$CSHARP_DEV_PACKAGES \
 	antiword \
 	apt-file \
 	apt-transport-https \
