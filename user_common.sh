@@ -25,12 +25,6 @@ if ! [ -d ~/myvim ]; then
 	popd
 fi
 
-if ! [ -d ~/dpcode ]; then
-	pushd ~
-	git clone ssh://git@github.com/dnuffer/dpcode
-	popd
-fi
-
 if ! [ -e /etc/sudoers.d/$USER ]; then
 	OLD_MODE=`umask`
 	umask 0227
@@ -82,25 +76,6 @@ if ! grep StrictHostKeyChecking ~/.ssh/config; then
 	echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 fi
 
-# broken
-#if ! [ -e ~/.gvm ]; then
-#	bash < <(curl -s https://raw.github.com/moovweb/gvm/master/binscripts/gvm-installer)
-#	source $HOME/.gvm/scripts/gvm
-#	gvm install go1.2.1
-#	gvm use go1.2.1
-#fi
-
-# don't use ruby anymore
-#if ! [ -e ~/.rvm ]; then
-#	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-#	curl -L https://get.rvm.io | bash -s stable --ruby
-#	set +e
-#	set +u
-#	source $HOME/.rvm/scripts/rvm
-#	set -e
-#	set -u
-#fi
-
 if ! [ -e ~/.Renviron ]; then
 	echo 'R_LIBS_USER="~/.Rlibs"' > ~/.Renviron
 fi
@@ -108,25 +83,6 @@ fi
 if ! [ -e ~/.Rlibs ]; then
 	mkdir ~/.Rlibs
 fi
-
-install_R_package() {
-	package=$1
-	if ! [ -e "$HOME/.Rlibs/$package" ]; then
-		R -e "install.packages(\"$package\", dependencies = TRUE, repos=\"http://cran.cnr.Berkeley.edu\", lib=\"~/.Rlibs\")"
-	fi
-}
-
-# TODO: figure out how to not install this globally and only for the project that uses it.
-install_R_package knitr
-install_R_package Hmisc
-install_R_package maps
-install_R_package devtools
-install_R_package roxygen2
-install_R_package testthat
-install_R_package iterators
-install_R_package caret
-install_R_package doParallel
-install_R_package e1071
 
 if ! [ -e ~/bin ]; then
 	mkdir ~/bin
