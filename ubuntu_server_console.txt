@@ -4,6 +4,7 @@ GRUB_GFXMODE=2560x1440x32
  or
 GRUB_GFXMODE=auto
 GRUB_GFXPAYLOAD_LINUX=keep
+# disable console screen blanking (which may not re-enable on certain graphics cards and monitors)
 GRUB_CMDLINE_LINUX_DEFAULT="consoleblank=0"
 
 $ update-grub
