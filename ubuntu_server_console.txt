@@ -9,5 +9,5 @@ GRUB_CMDLINE_LINUX_DEFAULT="consoleblank=0"
 
 $ update-grub
 
-Configure the console font with
+Configure the console font with (my favorite is Fixed 8x14)
 $ dpkg-reconfigure console-setup
