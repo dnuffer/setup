@@ -11,3 +11,6 @@ $ update-grub
 
 Configure the console font with (my favorite is Fixed 8x14)
 $ dpkg-reconfigure console-setup
+
+To configure the system to boot into text mode:
+$ systemctl set-default multi-user.target
