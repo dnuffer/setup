@@ -75,6 +75,12 @@ PROMPT_COMMAND="history -a; \$PROMPT_COMMAND"
 EOS
 fi
 
+if ! grep -q "stty -ixon" ~/.bashrc; then
+cat >> ~/.bashrc << EOS
+stty -ixon
+EOS
+fi
+
 if ! grep StrictHostKeyChecking ~/.ssh/config; then
 	echo 'Host *' >> ~/.ssh/config
 	echo "  StrictHostKeyChecking no" >> ~/.ssh/config
