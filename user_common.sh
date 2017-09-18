@@ -75,6 +75,7 @@ PROMPT_COMMAND="history -a; \$PROMPT_COMMAND"
 EOS
 fi
 
+# Disable ctrl-s pause
 if ! grep -q "stty -ixon" ~/.bashrc; then
 cat >> ~/.bashrc << EOS
 stty -ixon
