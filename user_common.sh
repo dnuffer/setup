@@ -3,7 +3,7 @@ set -x
 set -e
 set -u 
 
-sudo apt-get install git curl vim-gtk mercurial
+sudo apt-get install git curl vim-gtk
 git config --global user.name "Dan Nuffer"
 git config --global push.default matching
 
