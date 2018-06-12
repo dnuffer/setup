@@ -181,12 +181,6 @@ if ! dpkg -l google-talkplugin; then
 	apt-get -fy install
 fi
 
-if ! dpkg -l rescuetime; then
-	wget -O /tmp/rescuetime_current_amd64.deb https://www.rescuetime.com/installers/rescuetime_current_amd64.deb
-	dpkg -i /tmp/rescuetime_current_amd64.deb || true
-	apt-get -fy install
-fi
-
 # Install python epub module for recoll indexing of epub files
 if ! [ -e /usr/local/lib/python2.7/dist-packages/epub ]; then
 	pip install epub
@@ -202,26 +196,6 @@ fi
 if ! [ -e /usr/local/lib/python3.5/dist-packages/rarfile.py ]; then
 	pip3 install rarfile
 fi
-
-if ! [ -e /usr/local/crashplan/bin ]; then
-	if ! [ -e /tmp/crashplan-install ]; then
-		wget -O- https://download1.code42.com/installs/linux/install/CrashPlan/CrashPlan_4.8.0_Linux.tgz | tar -C /tmp -xzvf -
-	fi
-	pushd /tmp/crashplan-install
-	echo "fs.inotify.max_user_watches=10485760" >> /etc/sysctl.d/98-crashplan.conf
-	sysctl --system
-	echo '#!/bin/sh' > more
-	chmod +x more
-	bash -c 'PATH=.:/usr/bin:/bin:/usr/sbin:/sbin ./install.sh' << EOS
-
-
-
-yes
-EOS
-	popd
-	rm -rf /tmp/crashplan-install
-fi
-
 
 # The next three file modifications are to raise the ridicuously low file descriptor limit.
 if ! grep 'root hard nofile' /etc/security/limits.conf; then
