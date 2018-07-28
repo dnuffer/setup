@@ -133,3 +133,5 @@ else
 fi
 EOS
 fi
+
+sudo usermod -aG docker $USER
