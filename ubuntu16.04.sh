@@ -138,7 +138,7 @@ update-grub
 fi
 
 if ! grep -q '"default-runtime": "nvidia",' /etc/docker/daemon.json; then
-cat >> /etc/docker/daemon.json << EOS
+cat > /etc/docker/daemon.json << EOS
 {
     "default-runtime": "nvidia",
     "runtimes": {
