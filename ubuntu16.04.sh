@@ -30,6 +30,13 @@ if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
 	apt-get -y update
 fi
 
+if [ ! -e /etc/apt/sources.list.d/nvidia-docker.list ]; then
+	curl -fsSL https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+	distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+	curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list > /etc/apt/sources.list.d/nvidia-docker.list
+	sudo apt-get update
+fi
+
 apt-get -y update
 
 apt-get -y dist-upgrade
@@ -44,7 +51,7 @@ RECOLL_PACKAGES="recoll unity-scope-recoll antiword catdoc djvulibre-bin libimag
 R_PACKAGES="r-base r-base-dev r-cran-boot r-cran-class r-cran-cluster r-cran-codetools r-cran-foreign r-cran-ggplot2 r-cran-kernsmooth r-cran-lattice r-cran-mass r-cran-matrix r-cran-mcmcpack r-cran-mgcv r-cran-nlme r-cran-nnet r-cran-rjags r-cran-rodbc r-cran-rpart r-cran-spatial r-cran-survival"
 DEV_TOOLS=" octave subversion "
 SYSTEM_PACKAGES=" apt-transport-https autofs smartmontools ttf-bitstream-vera ttf-dejavu ubuntu-restricted-extras unattended-upgrades"
-DOCKER="docker-ce"
+DOCKER="docker-ce nvidia-docker2"
 
 apt-get install --fix-broken \
 	$GO_PKGS \
@@ -128,4 +135,19 @@ cat >> /etc/default/grub << EOS
 GRUB_TERMINAL=console
 EOS
 update-grub
+fi
+
+if ! grep -q '"default-runtime": "nvidia",' /etc/docker/daemon.json; then
+cat >> /etc/docker/daemon.json << EOS
+{
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
+}
+EOS
+service docker restart
 fi
