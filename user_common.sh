@@ -135,3 +135,7 @@ EOS
 fi
 
 sudo usermod -aG docker $USER
+
+# shut up parallel's stupid citation message
+mkdir -p ~/.parallel
+touch ~/.parallel/will-cite
