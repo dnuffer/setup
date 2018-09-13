@@ -6,6 +6,6 @@ set -u
 ./user_common.sh
 
 if [ -z $(git config --global user.email) ]; then
-	git config --global user.email "dan.nuffer@lovelandinnovations.com"
+	git config --global user.email "dnuffer@ancestry.com"
 fi
 

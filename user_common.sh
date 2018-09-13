@@ -3,7 +3,7 @@ set -x
 set -e
 set -u 
 
-sudo apt-get install git curl vim-gtk
+sudo apt-get install git curl
 git config --global user.name "Dan Nuffer"
 git config --global push.default matching
 
@@ -134,7 +134,9 @@ fi
 EOS
 fi
 
-sudo usermod -aG docker $USER
+if grep -q docker /etc/group; then
+	sudo usermod -aG docker $USER
+fi
 
 # shut up parallel's stupid citation message
 mkdir -p ~/.parallel
