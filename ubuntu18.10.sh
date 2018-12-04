@@ -78,11 +78,7 @@ if ! grep -q "^/net\s*-hosts$" /etc/auto.master; then
 	service autofs restart
 fi
 
-if ! dpkg -l google-chrome-stable | grep '^ii.*google-chrome-stable'; then
-	wget -O /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-	dpkg -i /tmp/google-chrome-stable_current_amd64.deb || true
-	apt-get -fy install
-fi
+sudo snap install chromium chromium-ffmpeg
 
 if ! [ -e /usr/bin/rstudio ]; then
 	latest_r_studio_url=$(wget -q -O- http://www.rstudio.com/ide/download/desktop | grep -o -P 'https?://.*\.rstudio\.org/rstudio-.*-amd64\.deb' | tail -1)
