@@ -57,6 +57,7 @@ R_PACKAGES="r-base r-base-dev r-cran-boot r-cran-class r-cran-cluster r-cran-cod
 DEV_TOOLS="octave subversion "
 SYSTEM_PACKAGES="apt-transport-https autofs smartmontools ttf-bitstream-vera ttf-dejavu ubuntu-restricted-extras unattended-upgrades "
 DOCKER="docker-ce nvidia-docker2"
+UNITY="ubuntu-unity-desktop xserver-xorg-input-synaptics"
 
 apt-get install --fix-broken \
 	$GO_PKGS \
@@ -69,7 +70,8 @@ apt-get install --fix-broken \
 	$R_PACKAGES \
 	$DEV_TOOLS \
 	$SYSTEM_PACKAGES \
-	$DOCKER
+	$DOCKER \
+	$UNITY
 	
 
 
