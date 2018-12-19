@@ -141,3 +141,24 @@ fi
 # shut up parallel's stupid citation message
 mkdir -p ~/.parallel
 touch ~/.parallel/will-cite
+
+if ! [ -e ~/.inputrc ]; then
+cat >> ~/.inputrc << EOS
+$include /etc/inputrc
+
+EOS
+fi
+
+if ! grep -q "mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving" ~/.inputrc; then
+cat >> ~/.inputrc << EOS
+# mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
+"\eOC": forward-word
+"\eOD": backward-word
+EOS
+fi
