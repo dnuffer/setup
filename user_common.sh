@@ -149,6 +149,10 @@ $include /etc/inputrc
 EOS
 fi
 
+# for reference: https://stackoverflow.com/questions/5029118/bash-ctrl-to-move-cursor-between-words-strings
+# Use bind to change the current shell. e.g.: $ bind '"\eOC":forward-word'
+# To see the code for a key-combo: cat > /dev/null (^[ == \e)
+# 'bind -p' will print all the possible mappings
 if ! grep -q "mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving" ~/.inputrc; then
 cat >> ~/.inputrc << EOS
 # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
