@@ -13,4 +13,7 @@ curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x
 echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64 /" > /etc/apt/sources.list.d/cuda.list
 apt-get update
 
-apt-get install nvidia-driver-410
+apt-get install --no-install-recommends \
+	nvidia-headless-410 \
+	nvidia-utils-410 \
+	nvidia-modprobe

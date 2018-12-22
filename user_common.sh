@@ -144,7 +144,7 @@ touch ~/.parallel/will-cite
 
 if ! [ -e ~/.inputrc ]; then
 cat >> ~/.inputrc << EOS
-$include /etc/inputrc
+\$include /etc/inputrc
 
 EOS
 fi
