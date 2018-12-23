@@ -74,7 +74,7 @@ apt-get install --fix-broken \
 	$DOCKER \
 	$UNITY
 	
-
+snap install intellij-idea-ultimate --classic
 
 if ! grep -q "^/net\s*-hosts$" /etc/auto.master; then
 	sed -i -e 's/^#\/net	-hosts$/\/net	-hosts/' /etc/auto.master
