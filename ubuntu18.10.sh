@@ -134,6 +134,15 @@ session required pam_limits.so
 EOS
 fi
 
+if ! grep -q '^fs.inotify.max_queued_events = 1048576$' /etc/sysctl.conf; then
+cat >> /etc/sysctl.conf << EOS
+fs.inotify.max_queued_events = 1048576
+fs.inotify.max_user_instances = 1048576
+fs.inotify.max_user_watches = 1048576
+EOS
+sysctl -p
+fi
+
 if ! grep -q '^GRUB_TERMINAL=console$' /etc/default/grub; then
 cat >> /etc/default/grub << EOS
 GRUB_TERMINAL=console

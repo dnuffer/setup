@@ -110,7 +110,7 @@ if ! [ -e /usr/local/lib/python3.5/dist-packages/rarfile.py ]; then
 fi
 
 # The next three file modifications are to raise the ridicuously low file descriptor limit.
-if ! grep 'root hard nofile' /etc/security/limits.conf; then
+if ! grep -q 'root hard nofile' /etc/security/limits.conf; then
 cat >> /etc/security/limits.conf << EOS
 * soft nofile 100000
 * hard nofile 100000
@@ -119,16 +119,25 @@ root hard nofile 100000
 EOS
 fi
 
-if ! grep '^session required pam_limits.so$' /etc/pam.d/common-session; then
+if ! grep -q '^session required pam_limits.so$' /etc/pam.d/common-session; then
 cat >> /etc/pam.d/common-session << EOS
 session required pam_limits.so
 EOS
 fi
 
-if ! grep '^session required pam_limits.so$' /etc/pam.d/common-session-noninteractive; then
+if ! grep -q '^session required pam_limits.so$' /etc/pam.d/common-session-noninteractive; then
 cat >> /etc/pam.d/common-session-noninteractive << EOS
 session required pam_limits.so
 EOS
+fi
+
+if ! grep -q '^fs.inotify.max_queued_events = 1048576$' /etc/sysctl.conf; then
+cat >> /etc/sysctl.conf << EOS
+fs.inotify.max_queued_events = 1048576
+fs.inotify.max_user_instances = 1048576
+fs.inotify.max_user_watches = 1048576
+EOS
+sysctl -p
 fi
 
 if ! grep -q '^GRUB_TERMINAL=console$' /etc/default/grub; then
