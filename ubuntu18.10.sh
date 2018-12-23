@@ -8,6 +8,7 @@ if [ $UID != "0" ]; then
 	exit 1
 fi
 
+add-apt-repository multiverse
 apt-get -y update
 apt-get -y install git curl wget apt-transport-https ca-certificates software-properties-common
 
@@ -47,15 +48,15 @@ apt-get -y update
 apt-get -y dist-upgrade
 
 GO_PKGS="golang"
-MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu csvkit python3-csvkit whois lm-sensors texlive-full insync xclip parallel p7zip-rar p7zip-full vim vim-doc vim-gnome vim-gtk virtualbox apt-file dos2unix dvipng tree vagrant valgrind vlc ubuntu-unity-desktop "
-MISC="tmux byobu screen ssh "
-DEV_PACKAGES="bison libboost-all-dev build-essential bzr ccache clang cmake g++ gcc git-svn gradle kcachegrind libcurl4-openssl-dev libopencv-dev libssl-dev libtool mercurial openjdk-8-dbg openjdk-8-doc openjdk-8-jdk openjdk-8-source openjdk-11-dbg openjdk-11-doc openjdk-11-jdk openjdk-11-source zlib1g-dev default-jdk doxygen gawk "
-PYTHON2_BASIC="python python-all python-all-dev python-dev python-pip python-setuptools python-wheel python-virtualenv ipython "
-PYTHON3_BASIC="python3 python3-all python3-all-dev python3-dev python3-pip python3-setuptools python3-wheel python3-virtualenv ipython3 virtualenv "
-RECOLL_PACKAGES="recoll antiword catdoc djvulibre-bin libimage-exiftool-perl libwpd-tools pstotext python3-mutagen python-chm python-mutagen p7zip-rar p7zip-full unrar unrtf untex wv "
-R_PACKAGES="r-base r-base-dev r-cran-boot r-cran-class r-cran-cluster r-cran-codetools r-cran-foreign r-cran-ggplot2 r-cran-kernsmooth r-cran-lattice r-cran-mass r-cran-matrix r-cran-mcmcpack r-cran-mgcv r-cran-nlme r-cran-nnet r-cran-rjags r-cran-rodbc r-cran-rpart r-cran-spatial r-cran-survival "
-DEV_TOOLS="octave subversion "
-SYSTEM_PACKAGES="apt-transport-https autofs smartmontools ttf-bitstream-vera ttf-dejavu ubuntu-restricted-extras unattended-upgrades "
+MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu csvkit python3-csvkit whois lm-sensors texlive-full insync insync-nautilus xclip parallel p7zip-rar p7zip-full vim vim-doc vim-gnome vim-gtk virtualbox apt-file dos2unix dvipng tree vagrant valgrind vlc ubuntu-unity-desktop"
+MISC="tmux byobu screen ssh"
+DEV_PACKAGES="bison libboost-all-dev build-essential bzr ccache clang cmake g++ gcc git-svn gradle kcachegrind libcurl4-openssl-dev libopencv-dev libssl-dev libtool mercurial openjdk-8-dbg openjdk-8-doc openjdk-8-jdk openjdk-8-source openjdk-11-dbg openjdk-11-doc openjdk-11-jdk openjdk-11-source zlib1g-dev default-jdk doxygen gawk"
+PYTHON2_BASIC="python python-all python-all-dev python-dev python-pip python-setuptools python-wheel python-virtualenv ipython"
+PYTHON3_BASIC="python3 python3-all python3-all-dev python3-dev python3-pip python3-setuptools python3-wheel python3-virtualenv ipython3 virtualenv"
+RECOLL_PACKAGES="recoll antiword catdoc djvulibre-bin libimage-exiftool-perl libwpd-tools pstotext python3-mutagen python-chm python-mutagen p7zip-rar p7zip-full unrar unrtf untex wv"
+R_PACKAGES="r-base r-base-dev r-cran-boot r-cran-class r-cran-cluster r-cran-codetools r-cran-foreign r-cran-ggplot2 r-cran-kernsmooth r-cran-lattice r-cran-mass r-cran-matrix r-cran-mcmcpack r-cran-mgcv r-cran-nlme r-cran-nnet r-cran-rjags r-cran-rodbc r-cran-rpart r-cran-spatial r-cran-survival"
+DEV_TOOLS="octave subversion"
+SYSTEM_PACKAGES="apt-transport-https autofs smartmontools ttf-bitstream-vera ttf-dejavu ubuntu-restricted-extras unattended-upgrades bash-completion lxd"
 DOCKER="docker-ce nvidia-docker2"
 UNITY="ubuntu-unity-desktop xserver-xorg-input-synaptics"
 
