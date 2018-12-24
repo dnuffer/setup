@@ -48,7 +48,7 @@ apt-get -y update
 apt-get -y dist-upgrade
 
 GO_PKGS="golang"
-MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu csvkit python3-csvkit whois lm-sensors texlive-full insync insync-nautilus xclip parallel p7zip-rar p7zip-full vim vim-doc vim-gnome vim-gtk virtualbox apt-file dos2unix dvipng tree vagrant valgrind vlc ubuntu-unity-desktop"
+MY_TOOLS="alarm-clock-applet anki lyx meld gimp git-gui gitk htop httpie ifstat inkscape iotop molly-guard nethogs nmap linux-tools-generic ncdu csvkit python3-csvkit whois lm-sensors texlive-full insync insync-nautilus xclip parallel p7zip-rar p7zip-full vim vim-doc vim-gnome vim-gtk virtualbox apt-file dos2unix dvipng tree vagrant valgrind vlc ubuntu-unity-desktop net-tools"
 MISC="tmux byobu screen ssh"
 DEV_PACKAGES="bison libboost-all-dev build-essential bzr ccache clang cmake g++ gcc git-svn gradle kcachegrind libcurl4-openssl-dev libopencv-dev libssl-dev libtool mercurial openjdk-8-dbg openjdk-8-doc openjdk-8-jdk openjdk-8-source openjdk-11-dbg openjdk-11-doc openjdk-11-jdk openjdk-11-source zlib1g-dev default-jdk doxygen gawk"
 PYTHON2_BASIC="python python-all python-all-dev python-dev python-pip python-setuptools python-wheel python-virtualenv ipython"
