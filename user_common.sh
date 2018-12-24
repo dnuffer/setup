@@ -3,7 +3,7 @@ set -x
 set -e
 set -u 
 
-sudo apt-get install git curl
+[[ $(type -P "git") ]] || sudo apt-get install git
 git config --global user.name "Dan Nuffer"
 git config --global push.default matching
 
@@ -52,7 +52,7 @@ if [ -e /usr/bin/gsettings ]; then
 	gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['']"
 fi
 
-if ! grep -q ccache ~/.bashrc; then
+if ! grep -q ccache ~/.bashrc && [ -d /usr/lib/ccache ]; then
 	echo "export PATH=/usr/lib/ccache:\$PATH" >> ~/.bashrc
 fi
 
@@ -82,7 +82,7 @@ stty -ixon
 EOS
 fi
 
-if ! grep StrictHostKeyChecking ~/.ssh/config; then
+if ! grep -q StrictHostKeyChecking ~/.ssh/config; then
 	echo 'Host *' >> ~/.ssh/config
 	echo "  StrictHostKeyChecking no" >> ~/.ssh/config
 fi
@@ -105,33 +105,6 @@ fi
 
 if ! grep -q termcapinfo ~/.screenrc; then
 	echo "termcapinfo xterm* ti@:te@" >> ~/.screenrc
-fi
-
-if ! grep -q "Initializing new SSH agent" ~/.bash_profile; then
-cat >> ~/.bash_profile << EOS
-SSH_ENV="\$HOME/.ssh/environment"
-
-function start_agent {
-    echo "Initializing new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "\${SSH_ENV}"
-    echo succeeded
-    chmod 600 "\${SSH_ENV}"
-    . "\${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-}
-
-# Source SSH settings, if applicable
-
-if [ -f "\${SSH_ENV}" ]; then
-    . "\${SSH_ENV}" > /dev/null
-    #ps \${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep \${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
-EOS
 fi
 
 if grep -q docker /etc/group; then
