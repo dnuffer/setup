@@ -20,7 +20,7 @@ lxc exec $container_name -- pip install tensorflow-gpu
 lxc exec $container_name -- pip3 install tensorflow-gpu
 
 # install misc utilities
-lxc exec $container_name -- apt install -y git htop ncdu python-csvkit python3-csvkit xclip parallel vim vim-doc dos2unix tree tmux byobu screen
+lxc exec $container_name -- apt install -y git htop ncdu python-csvkit python3-csvkit xclip parallel vim vim-doc dos2unix tree tmux byobu screen virtualenv python3-virtualenv
 
 # setup a user
 lxc exec $container_name -- deluser --remove-home ubuntu
