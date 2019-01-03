@@ -3,7 +3,8 @@ set -x
 set -e
 set -u
 
-container_name=tf1-12
+container_name=${CONTAINER_NAME:-tf1-12}
+echo "Creating container named $container_name"
 lxc launch ubuntu:16.04 $container_name -c nvidia.runtime=true
 lxc config device add $container_name gpu gpu
 lxc exec $container_name -- nvidia-smi
