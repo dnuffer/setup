@@ -139,3 +139,7 @@ cat >> ~/.inputrc << EOS
 "\eOD": backward-word
 EOS
 fi
+
+if ! grep -q "force_color_prompt=yes" ~/.bashrc; then
+	sed -i -e 's/^#force_color_prompt=yes$/force_color_prompt=yes/g' ~/.bashrc
+fi
